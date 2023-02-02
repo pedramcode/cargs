@@ -82,3 +82,12 @@ void cargs_help(CargsMap_t *map, size_t map_size){
         }
     }
 }
+
+char* cargs_get(CargsMap_t *map, size_t map_size, const char* key){
+    for (int i = 0; i < map_size; i++) {
+        if (map[i].w_key == key) {
+            return map[i].value;
+        }
+    }
+    return NULL;
+}
