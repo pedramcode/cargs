@@ -17,11 +17,11 @@ A C/C++ argument parser library
 Create an array of `CargsMap_t` structure and define the arguments map:
 
 ````c
-CargsMap_t map* = [
+CargsMap_t *map = {
     {"first-name", 'f', true, "User first name"},
     {"last-name", 'l', true, "User last name"},
     {"email", 'e', false, "Email address"}
-];
+};
 ````
 
 The `CargsMap_t` structure fields are:

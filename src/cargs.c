@@ -1,4 +1,4 @@
-#include "cargs/cargs.h"
+#include "cargs.h"
 
 bool is_word_key(const char *key) {
     return strlen(key) > 2 && key[0] == '-' && key[1] == '-';
