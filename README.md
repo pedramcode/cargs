@@ -85,7 +85,7 @@ Also, this message can display using `help` special argument:
 ### Example
 
 ```c
-#include <cargs/cargs.h>
+#include <cargs.h>
 #include <stdio.h>
 
 int main(int argc, char **argv){
