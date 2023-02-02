@@ -15,5 +15,8 @@ typedef struct cargs_map {
 } CargsMap_t;
 
 void cargs_parse(CargsMap_t *map, size_t map_size, int argc, char **argv);
+void cargs_help(CargsMap_t *map, size_t map_size);
+bool cargs_validate(CargsMap_t *map, size_t map_size, bool exit_on_error);
+
 
 #endif

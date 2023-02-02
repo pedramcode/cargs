@@ -9,8 +9,13 @@ bool is_char_key(const char *key) {
 }
 
 void cargs_parse(CargsMap_t *map, size_t map_size, int argc, char **argv){
-    CargsMap_t **current = (CargsMap_t **) malloc(sizeof(CargsMap_t *));
 
+    if(argc == 2 && strcmp(argv[1], "help")==0){
+        cargs_help(map, map_size);
+        return;
+    }
+
+    CargsMap_t **current = (CargsMap_t **) malloc(sizeof(CargsMap_t *));
     if ((argc - 1) % 2 != 0) {
         fprintf(stderr, "Invalid input\n");
         exit(EXIT_FAILURE);
@@ -54,7 +59,9 @@ void cargs_parse(CargsMap_t *map, size_t map_size, int argc, char **argv){
             exit(EXIT_FAILURE);
         }
     }
+}
 
+bool cargs_validate(CargsMap_t *map, size_t map_size, bool exit_on_error){
     bool error = false;
     for (int i = 0; i < map_size; i++) {
         if (map[i].value == NULL && map[i].required == true) {
@@ -62,7 +69,16 @@ void cargs_parse(CargsMap_t *map, size_t map_size, int argc, char **argv){
             error = true;
         }
     }
-    if (error) {
+    if (exit_on_error && error) {
         exit(EXIT_FAILURE);
+    }
+    return error;
+}
+
+void cargs_help(CargsMap_t *map, size_t map_size){
+    for (int i = 0; i < map_size; i++) {
+        if (map[i].value == NULL && map[i].required == true) {
+            fprintf(stdout, "-%c\t--%s\t%s\n", map[i].c_key, map[i].w_key, map[i].desc);
+        }
     }
 }
