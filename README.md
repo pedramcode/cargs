@@ -105,3 +105,9 @@ int main(int argc, char **argv){
    return 0;
 }
 ```
+
+Execution:
+
+```shell
+./your_exe --first-name Pedram --last-name Dehghanpour
+```
