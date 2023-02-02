@@ -89,11 +89,11 @@ Also, this message can display using `help` special argument:
 #include <stdio.h>
 
 int main(int argc, char **argv){
-    CargsMap_t map* = [
+    CargsMap_t *map = {
         {"first-name", 'f', true, "User first name"},
         {"last-name", 'l', true, "User last name"},
         {"email", 'e', false, "Email address"}
-    ];
+    };
    size_t map_size = 3;
    cargs_parse(map, map_size, argc, argv);
    
