@@ -111,3 +111,9 @@ Execution:
 ```shell
 ./your_exe --first-name Pedram --last-name Dehghanpour
 ```
+
+or
+
+```shell
+./your_exe -f Pedram -l Dehghanpour
+```
