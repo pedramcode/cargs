@@ -81,6 +81,7 @@ void cargs_help(CargsMap_t *map, size_t map_size){
             fprintf(stdout, "-%c\t--%s\t%s\n", map[i].c_key, map[i].w_key, map[i].desc);
         }
     }
+    exit(EXIT_SUCCESS);
 }
 
 char* cargs_get(CargsMap_t *map, size_t map_size, const char* key){
